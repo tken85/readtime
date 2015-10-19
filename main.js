@@ -5,10 +5,8 @@ var readSpeed = 230;
 
 // allow user to change read speed. Values from http://www.forbes.com/sites/brettnelson/2012/06/04/do-you-read-fast-enough-to-be-successful/
 
-
-var readSpeed = 230;
 // grab text
-var allText= document.body.textContent;
+var allText= document.getElementById('post').textContent;
 
 //make text into array
 var textArr = allText.split(" ");
@@ -60,4 +58,37 @@ var setReadSpeed = function(selection){
     readTime = Math.round(timeToRead(textArr));
     document.getElementById('time').innerHTML = readTime +" minutes";
   }
+}
+
+var setHitch = function(){
+  document.getElementById('post').innerHTML = hitch;
+  document.getElementById('title').innerHTML = "Hitchhiker's Guide";
+  allText= document.getElementById('post').textContent;
+  textArr = allText.split(" ");
+  filteredArr = textArr.filter(notSpace);
+  readTime = Math.round(timeToRead(textArr));
+  document.getElementById('time').innerHTML = readTime +" minutes";
+
+}
+
+var setCook = function(){
+  document.getElementById('post').innerHTML = cookBook;
+  document.getElementById('title').innerHTML = "Random Cookbook";
+  allText= document.getElementById('post').textContent;
+  textArr = allText.split(" ");
+  filteredArr = textArr.filter(notSpace);
+  readTime = Math.round(timeToRead(textArr));
+  document.getElementById('time').innerHTML = readTime +" minutes";
+
+}
+
+var setGetty = function(){
+  document.getElementById('post').innerHTML = gettysburg;
+  document.getElementById('title').innerHTML = "Gettysburg Address";
+  allText= document.getElementById('post').textContent;
+  textArr = allText.split(" ");
+  filteredArr = textArr.filter(notSpace);
+  readTime = Math.round(timeToRead(textArr));
+  document.getElementById('time').innerHTML = readTime +" minutes";
+
 }
