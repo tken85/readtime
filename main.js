@@ -89,7 +89,8 @@ var setPost = function(whichPost){
   //allText= document.getElementById('post').textContent; - javascript version
 }
 
- /*working on plug-in function
+ /*Below is a plug-in for jquery that works and an example of how to call it but i did not adjust the other parts of my code to work with it so I will leave it as a comment
+
 $.fn.readTime = function(){
   var textArr = this.text().split(" ");
 
@@ -121,4 +122,7 @@ $.fn.readTime = function(){
   }
 
   setReadTime();
-}*/
+}
+
+$('#post').readTime();
+*/
