@@ -20,6 +20,14 @@ function notSpace(value){
 
 var filteredArr = textArr.filter(notSpace);
 
+// turning word grab and filtering into function for later recall
+
+var getNumWords = function(){
+  allText = $('#post').text();
+  textArr = allText.split(" ");
+  filteredArr = textArr.filter(notSpace);
+}
+
 var timeToRead = function(array){
   var result = array.length/readSpeed;
   if(result < 1){
@@ -31,7 +39,14 @@ var timeToRead = function(array){
 
 var setReadTime = function(){
   var readTime = Math.round(timeToRead(filteredArr));
+
+  // grammar fix
+  if(readTime <=1){
+    $('#time').html(readTime + " minute to read");
+  }
+  else{
    $('#time').html(readTime + " minutes to read");
+ }
    /*document.getElementById('time').innerHTML = readTime +" minutes to read"; -- javascript code */
 }
 
@@ -69,13 +84,12 @@ var setReadSpeed = function(selection){
 var setPost = function(whichPost){
   $('#post').html(whichPost.text);
   $('#title').html(whichPost.title);
+  getNumWords();
+  setReadTime();
   //document.getElementById('post').innerHTML = whichPost.text; - javascript version
   //document.getElementById('title').innerHTML = whichPost.title; - javascript version
-  allText = $('#post').text();
   //allText= document.getElementById('post').textContent; - javascript version
-  textArr = allText.split(" ");
-  filteredArr = textArr.filter(notSpace);
-  setReadTime();
+
 
 }
 
