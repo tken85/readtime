@@ -29,10 +29,14 @@ var timeToRead = function(array){
   return result;
 }
 
-var readTime = Math.round(timeToRead(filteredArr));
+var setReadTime = function(){
+  var readTime = Math.round(timeToRead(filteredArr));
+   $('#time').html(readTime + " minutes to read");
+   /*document.getElementById('time').innerHTML = readTime +" minutes to read"; -- javascript code */
+}
 
- $('#time').html(readTime + " minutes to read");
-/*document.getElementById('time').innerHTML = readTime +" minutes to read";*/
+setReadTime();
+
 
 // allow user to change read speed. Values from http://www.forbes.com/sites/brettnelson/2012/06/04/do-you-read-fast-enough-to-be-successful/
 
@@ -41,30 +45,23 @@ var setReadSpeed = function(selection){
 
   case 0:
     readSpeed = 150;
-    readTime = Math.round(timeToRead(textArr));
-    $('#time').html(readTime + " minutes to read");
-    //document.getElementById('time').innerHTML = readTime +" minutes to read"; - javascript version
+    setReadTime();
+
     break;
 
   case 1:
     readSpeed = 230;
-    readTime = Math.round(timeToRead(textArr));
-    $('#time').html(readTime + " minutes to read");
-    //document.getElementById('time').innerHTML = readTime +" minutes to read"; - javascript version
+    setReadTime();
     break;
 
   case 2:
     readSpeed = 575;
-    readTime = Math.round(timeToRead(textArr));
-    $('#time').html(readTime + " minutes to read");
-    //document.getElementById('time').innerHTML = readTime +" minutes to read"; - javascript version
+    setReadTime();
     break;
 
   case 3:
     readSpeed = 1500;
-    readTime = Math.round(timeToRead(textArr));
-    $('#time').html(readTime + " minutes to read");
-    //document.getElementById('time').innerHTML = readTime +" minutes to read"; - javascript version
+    setReadTime();
   }
 }
 
@@ -78,7 +75,12 @@ var setPost = function(whichPost){
   //allText= document.getElementById('post').textContent; - javascript version
   textArr = allText.split(" ");
   filteredArr = textArr.filter(notSpace);
-  readTime = Math.round(timeToRead(textArr));
-  $('#time').html(readTime + " minutes to read");
-  //document.getElementById('time').innerHTML = readTime +" minutes to read"; - javascript version
+  setReadTime();
+
 }
+
+/* working on plug-in function
+$.fn.readTime = function(){
+  this.text().split(" ");
+
+}*/
